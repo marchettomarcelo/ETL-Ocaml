@@ -63,3 +63,10 @@ let order_to_row order =
     order.order_date;
     order.status;
     order.origin ]
+
+let sum_by_order_id field_extractor order_id_compare order_item  =
+    List.fold_left
+      (fun acc (item : order_item) ->
+        if item.order_id = order_id_compare then acc +. field_extractor item
+        else acc)
+      0. order_item
