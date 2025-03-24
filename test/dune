@@ -1,2 +1,4 @@
 (test
- (name test_etl))
+ (name test_utils)
+ (libraries etl ounit2)
+ (modules test_utils))

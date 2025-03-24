@@ -6,15 +6,13 @@ let () =
   let status = Sys.argv.(1) in
   let origin = Sys.argv.(2) in
 
-  (* Read csv file *) 
-
-  let order_item =
-    Read_csv_file.read_csv_file "order_item.csv"
+  let order_item = 
+    Lwt_main.run    (Fetch_csv.fetch_csv "https://raw.githubusercontent.com/marchettomarcelo/order-data/refs/heads/main/order_item.csv")    
     |> List.map Utils.row_to_order_item
   in
 
+  Lwt_main.run (Fetch_csv.fetch_csv "https://raw.githubusercontent.com/marchettomarcelo/order-data/refs/heads/main/order.csv")
 
-  Read_csv_file.read_csv_file "order.csv"
   |> List.map Utils.row_to_order
   |> (if status = "all" && origin = "all" then fun x -> x
      else
@@ -23,8 +21,7 @@ let () =
   |> List.map (fun (order : Utils.order) ->
          [
            string_of_int order.id;
-           string_of_float
-             (Utils.sum_by_order_id
+           string_of_float (Utils.sum_by_order_id
                 (fun item -> item.final_price)
                 order.id order_item);
            string_of_float

@@ -1,4 +1,6 @@
 (executable
  (public_name etl)
  (name main)
- (libraries etl csv))  ;; Remove "utils" if it doesn't exist
+ (libraries etl csv))
+
+;; Remove "utils" if it doesn't exist
