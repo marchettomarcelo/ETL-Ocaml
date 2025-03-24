@@ -1,5 +1,5 @@
 (library
  (name etl)
  (public_name etl)
- (libraries csv)
- (modules csv_reader read_csv_file utils))  ;; Ensure utils is listed
+ (libraries cohttp-lwt-unix csv lwt )
+ (modules csv_reader read_csv_file utils ))  ;; Ensure utils is listed

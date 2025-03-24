@@ -19,12 +19,6 @@ type order_item = {
   final_price: float;
 }
 
-type output = {
-  order_id : int;
-  total_amount : float;
-  total_taxes : float;
-}
-
 
 let row_to_order row =
   match row with
@@ -57,6 +51,7 @@ let row_to_order_item row =
       }
   | _ -> failwith "Invalid CSV row format"
 
+
 let order_to_row order =
   [ string_of_int order.id;
     string_of_int order.client_id;
@@ -64,9 +59,12 @@ let order_to_row order =
     order.status;
     order.origin ]
 
+
+
 let sum_by_order_id field_extractor order_id_compare order_item  =
     List.fold_left
       (fun acc (item : order_item) ->
         if item.order_id = order_id_compare then acc +. field_extractor item
         else acc)
       0. order_item
+
