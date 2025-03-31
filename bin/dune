@@ -1,6 +1,5 @@
 (executable
  (public_name etl)
  (name main)
- (libraries etl csv))
+ (libraries etl csv sqlite3))
 
-;; Remove "utils" if it doesn't exist

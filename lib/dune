@@ -1,7 +1,7 @@
 (library
  (name etl)
  (public_name etl)
- (libraries cohttp-lwt-unix csv lwt)
- (modules fetch_csv utils))
+ (libraries cohttp-lwt-unix csv lwt sqlite3)
+ (modules fetch_csv utils db_utils ))
 
 ;; Ensure utils is listed
