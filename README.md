@@ -47,7 +47,6 @@ mês e ano.
 - [x] 7. Gerar arquivos de testes completos para as funções puras.
 
 
-## Step by step
 ## Passo a passo  
 
 A seguir, são descritas as etapas de desenvolvimento do projeto, com recomendações para facilitar sua reprodução no futuro.  
