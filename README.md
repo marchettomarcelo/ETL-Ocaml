@@ -24,3 +24,29 @@ Transform.
 - [ ] 6. Realizar uma saída adicional que contém a média de receita e impostos pagos agrupados por
 mês e ano.
 - [x] 7. Gerar arquivos de testes completos para as funções puras.
+
+
+## Step by step
+
+A seguir, vou relatar o processo de desenvolvimento desse projeto.
+
+### Inicio
+
+No início, quando eu ainda não estava muito familiarizado com a sintaxe, eu optei por iniciar de cara um projeto usando o dune uma vez que meus amigos me disseram que seria mais fácil iniciar o projeto usadno a ferramenta. Primeiramente, eu criei algumas funções simples para me acostumar com o jeito que as coisas funcionavam em OCaml, mas tive bastante dificultade para importar funcoes de um arquivo para outro, mas eventualmente, consegui fazer tudo funcionar da maneira que eu planejava.
+
+### Leitura de dados em csv
+
+O segundo passo foi descobrir como trabalhar com arquivos CSV. Eu optei por baixar a biblioteca "csv" para lidar com os aquivos de dados do projeto.
+
+### Processar dados
+
+Em seguida, passei a escrever as funções que convertiam as listas de strings nos tipos que eu havia criado: "order" e "order_item". Nesse momento eu passei a realmente entender como o pattern matching e os tipos funcionavam na linguagem.
+
+### Fazer o C
+
+Tendo os dados em mãos e já convertidos em tipos, foi simples concluir os requisitos "C" do projeto. Ao criar a
+
+### Requisitos avançados
+
+### Uso de IA
+
