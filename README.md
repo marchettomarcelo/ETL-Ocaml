@@ -1,3 +1,24 @@
+## Como rodar o projeto
+
+
+
+```
+git clone https://github.com/marchettomarcelo/ETL-Ocaml.git
+
+dune build
+```
+
+Para filtrar por tipos de status e orgigem, deve ser passado como argumento de linha de comando os seguintes valores
+
+Status: "Pending", "Complete" ou "all"
+
+Origin: "P", "O" ou "all"
+
+
+```
+dune exec etl all all
+```
+
 
 ## Requisitos do Projeto
 - [x] 1. O projeto precisa ser feito em OCaml.
@@ -27,26 +48,31 @@ mês e ano.
 
 
 ## Step by step
+## Passo a passo  
 
-A seguir, vou relatar o processo de desenvolvimento desse projeto.
+A seguir, são descritas as etapas de desenvolvimento do projeto, com recomendações para facilitar sua reprodução no futuro.  
 
-### Inicio
+### Configuração inicial  
 
-No início, quando eu ainda não estava muito familiarizado com a sintaxe, eu optei por iniciar de cara um projeto usando o dune uma vez que meus amigos me disseram que seria mais fácil iniciar o projeto usadno a ferramenta. Primeiramente, eu criei algumas funções simples para me acostumar com o jeito que as coisas funcionavam em OCaml, mas tive bastante dificultade para importar funcoes de um arquivo para outro, mas eventualmente, consegui fazer tudo funcionar da maneira que eu planejava.
+Para iniciar o projeto, recomenda-se utilizar o Dune, uma ferramenta que simplifica a configuração e o gerenciamento de dependências em OCaml. Criar um projeto estruturado desde o início ajuda na organização e facilita a manutenção do código. Antes de avançar para a implementação principal, é útil escrever algumas funções simples para se familiarizar com a sintaxe da linguagem. Uma dificuldade comum nesse estágio é a importação de funções entre arquivos diferentes, o que pode ser resolvido ajustando a estrutura do projeto e configurando corretamente os arquivos `dune`.  
 
-### Leitura de dados em csv
+### Leitura de dados em CSV  
 
-O segundo passo foi descobrir como trabalhar com arquivos CSV. Eu optei por baixar a biblioteca "csv" para lidar com os aquivos de dados do projeto.
+Para lidar com arquivos CSV, recomenda-se utilizar a biblioteca `csv`, que fornece funcionalidades para carregar e manipular dados tabulares. Essa abordagem simplifica a leitura e conversão dos dados para os tipos específicos do projeto.  
 
-### Processar dados
+### Processamento de dados  
 
-Em seguida, passei a escrever as funções que convertiam as listas de strings nos tipos que eu havia criado: "order" e "order_item". Nesse momento eu passei a realmente entender como o pattern matching e os tipos funcionavam na linguagem.
+Com os dados carregados, o próximo passo é convertê-los em tipos estruturados, como `order` e `order_item`. Nesse processo, o uso de pattern matching facilita a extração e manipulação das informações, permitindo compreender melhor como os tipos e variantes funcionam em OCaml.  
 
-### Fazer o C
+### Implementação da agregação de dados  
 
-Tendo os dados em mãos e já convertidos em tipos, foi simples concluir os requisitos "C" do projeto. Ao criar a
+Uma vez que os dados foram corretamente tipados, torna-se mais simples implementar as funções de agregação exigidas pelo requisito "C" do projeto. O objetivo aqui é agrupar valores de `order_item` com base nos identificadores das ordens (`order`).  
 
-### Requisitos avançados
+### Requisitos avançados  
 
-### Uso de IA
+Para funcionalidades mais complexas, como testes automatizados, manipulação de banco de dados SQLite e leitura de arquivos via internet, recomenda-se utilizar as bibliotecas `ounit2`, `sqlite3`, `cohttp-lwt-unix` e `lwt`. Essas ferramentas fornecem suporte eficiente para testes, persistência de dados e requisições HTTP assíncronas, facilitando a implementação e a escalabilidade do projeto.  
 
+
+## Uso de IA
+
+Para a realização do projeto, foi utilizada a IA generativa principalmente para que eu pudesse me familizarizar com a sintaxe e features da linguagem. Por exemplo, a sequência de uso de "pipes" no arquivo main foi sugerida pela IA, algo que eu não teria pensado em fazer por mim mesmo. No entanto, a maior parte da lógica de como a aplicação funciona e foi estruturada foi feita por mim.
